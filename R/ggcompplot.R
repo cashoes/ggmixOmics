@@ -2,6 +2,8 @@
 #'
 #' @param model A mixOmics model object.
 #' @param topn How many features to visualize the loading vectors of. Ordered by absolute corrlation with the components.
+#' @import tidyverse
+#' @import cowplot
 #' @import ggthemes
 #' @importFrom magrittr "%>%"
 #' @export
