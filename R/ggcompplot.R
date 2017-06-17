@@ -13,9 +13,7 @@
 #' ggcompplot(model)
 ggcompplot <- function(model, topn = NULL, combined = F) {
   data <- extract_data(model)
-  p <- data %>%
-    purrr::map(~ mixplot(.[[1]], .[[2]]))
-  p
+  data %>% purrr::map(~ mixplot(.[[1]], .[[2]]))
 }
 
 mixplot <- function(data, labs) {
