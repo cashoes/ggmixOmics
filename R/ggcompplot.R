@@ -26,7 +26,8 @@ mixplot <- function(data, labs) {
                   y = sprintf('component 2\n(%2.1f%% var. explained)', labs[2] * 100))
   if(!all(is.na(data$class)))
     return(g + ggplot2::stat_ellipse(level = 0.68, linetype = 1, show.legend = F))
-  g
+  else
+    g
 }
 
 #' Extracts relevant data from the model object to plot.
