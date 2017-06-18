@@ -13,7 +13,7 @@ extract_data.pca <- function(model, comps = 1:2, class = NA) {
   vars <- data.frame(model$variates$X[ , comps], class)
   colnames(vars) <- c(paste('comp', comps), 'class')
   labs <- model$explained_variance
-  list(list(vars = vars, labs = labs, vecs = NULL))
+  list(vars = vars, labs = labs, vecs = NULL)
 }
 
 # sparse methods
@@ -22,7 +22,7 @@ extract_data.spca <- function(model, comps = 1:2, class = NA) {
   colnames(vars) <- c(paste('comp', comps), 'class')
   labs <- model$explained_variance
   vecs <- mixOmics::plotVar(model, plot = F)
-  list(list(vars = vars, labs = labs, vecs = vecs))
+  list(vars = vars, labs = labs, vecs = vecs)
 }
 
 # supervised

@@ -16,12 +16,12 @@ ggcompplot <- function(model, topn = NULL, combined = F) UseMethod('ggcompplot')
 
 ggcompplot.pca <- function(model, topn = NULL, combined = F) {
   data <- extract_data(model)
-  data %>% purrr::map(~ mixplot(.[[1]], .[[2]]))
+  mixplot(data[[1]], data[[2]])
 }
 
 ggcompplot.spca <- function(model, topn = NULL, combined = F) {
   data <- extract_data(model)
-  data %>% purrr::map(~ mixplot(.[[1]], .[[2]]))
+  mixplot(data[[1]], data[[2]])
 }
 
 ggcompplot.block.splsda <- function(model, topn = NULL, combined = F) {
