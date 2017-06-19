@@ -16,14 +16,14 @@ ggcompplot.pca <- function(model, col = NULL, ...) {
     df$class <- NA
   else
     df$class <- col
-  .mixplot(df, model$explained_variance)
+  .compplot(df, model$explained_variance)
 }
 
 #' @rdname ggcompplot
 #' @export
 ggcompplot.DA <- function(model, ...) {
   df <- .extractor(model, ...)
-  .mixplot(df, model$explained_variance$X)
+  .compplot(df, model$explained_variance$X)
 }
 
 #' @rdname ggcompplot
@@ -35,7 +35,7 @@ ggcompplot.sgccda <- function(model, ...) {
 }
 
 # helper - the plot function
-.mixplot <- function(df, labs) {
+.compplot <- function(df, labs) {
   g <- ggplot2::ggplot(df, ggplot2::aes_string(x = colnames(df)[1], y = colnames(df)[2], colour = 'class')) +
     ggplot2::geom_point(size = 2) +
     ggthemes::scale_color_few(name = '', na.value = 'grey') +
