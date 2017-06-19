@@ -2,20 +2,25 @@
 % Please edit documentation in R/ggcompplot.R
 \name{ggcompplot}
 \alias{ggcompplot}
-\title{Draws component and variate plots given a mixOmics plot object, optionally combining them.}
+\alias{ggcompplot.pca}
+\alias{ggcompplot.DA}
+\alias{ggcompplot.sgccda}
+\title{Draws component plots given a mixOmics plot object.}
 \usage{
-ggcompplot(model, topn = NULL, combined = F)
+ggcompplot(model, ...)
+
+\method{ggcompplot}{pca}(model, col = NULL, ...)
+
+\method{ggcompplot}{DA}(model, ...)
+
+\method{ggcompplot}{sgccda}(model, ...)
 }
 \arguments{
 \item{model}{A mixOmics model object.}
-
-\item{topn}{How many features to visualize the loading vectors of. Ordered by absolute corrlation with the components.}
 }
 \description{
-Draws component and variate plots given a mixOmics plot object, optionally combining them.
+Draws component plots given a mixOmics plot object.
 }
-\examples{
-
-model <- mixOmics::splsda(X, Y, keepX = c(10, 10))
-ggcompplot(model)
+\author{
+Casey Shannon
 }
