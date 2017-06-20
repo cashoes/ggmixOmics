@@ -10,20 +10,20 @@ ggbiplot <- function(model, ...) UseMethod('ggbiplot')
 
 #' @rdname ggbiplot
 #' @export
-ggbiplot.pca <- function(model, col = NULL, ...) {
-  .combine(ggcompplot(model, col), ggvarplot(model, ...))
+ggbiplot.pca <- function(model, comps = 1:2, col = NULL, ...) {
+  .combine(ggcompplot(model, comps, col), ggvarplot(model, ...))
 }
 
 #' @rdname ggbiplot
 #' @export
-ggbiplot.DA <- function(model, ...) {
-  .combine(ggcompplot(model), ggvarplot(model, ...))
+ggbiplot.DA <- function(model, comps = 1:2, ...) {
+  .combine(ggcompplot(model, comps), ggvarplot(model, ...))
 }
 
 #' @rdname ggbiplot
 #' @export
-ggbiplot.sgccda <- function(model, ...) {
-  purrr::map2(ggcompplot(model), ggvarplot(model, ...), .combine)
+ggbiplot.sgccda <- function(model, comps = 1:2, ...) {
+  purrr::map2(ggcompplot(model, comps), ggvarplot(model, ...), .combine)
 }
 
 # helper - rescale

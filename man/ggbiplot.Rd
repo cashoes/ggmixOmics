@@ -9,11 +9,11 @@
 \usage{
 ggbiplot(model, ...)
 
-\method{ggbiplot}{pca}(model, col = NULL, ...)
+\method{ggbiplot}{pca}(model, comps = 1:2, col = NULL, ...)
 
-\method{ggbiplot}{DA}(model, ...)
+\method{ggbiplot}{DA}(model, comps = 1:2, ...)
 
-\method{ggbiplot}{sgccda}(model, ...)
+\method{ggbiplot}{sgccda}(model, comps = 1:2, ...)
 }
 \arguments{
 \item{model}{A mixOmics model object.}
