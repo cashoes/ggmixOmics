@@ -54,4 +54,3 @@ ggcompplot.sgccda <- function(model, comps = 1:2, ...) {
   else
     g
 }
-
