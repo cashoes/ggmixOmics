@@ -7,13 +7,13 @@
 \alias{ggvarplot.sgccda}
 \title{Draws variate plots given a mixOmics plot object.}
 \usage{
-ggvarplot(model, topn = NULL)
+ggvarplot(model, topn = 10)
 
-\method{ggvarplot}{pca}(model, topn = NULL)
+\method{ggvarplot}{pca}(model, topn = 10)
 
-\method{ggvarplot}{DA}(model, topn = NULL)
+\method{ggvarplot}{DA}(model, topn = 10)
 
-\method{ggvarplot}{sgccda}(model, topn = NULL)
+\method{ggvarplot}{sgccda}(model, topn = 10)
 }
 \arguments{
 \item{model}{A mixOmics model object.}

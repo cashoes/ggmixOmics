@@ -7,13 +7,13 @@
 \alias{ggbiplot.sgccda}
 \title{Draws a biplot given a mixOmics plot object.}
 \usage{
-ggbiplot(model, topn = NULL)
+ggbiplot(model, ...)
 
-\method{ggbiplot}{pca}(model, col = NULL, topn = 10, ...)
+\method{ggbiplot}{pca}(model, col = NULL, ...)
 
-\method{ggbiplot}{DA}(model, topn = 10, ...)
+\method{ggbiplot}{DA}(model, ...)
 
-\method{ggbiplot}{sgccda}(model, topn = 10, ...)
+\method{ggbiplot}{sgccda}(model, ...)
 }
 \arguments{
 \item{model}{A mixOmics model object.}
