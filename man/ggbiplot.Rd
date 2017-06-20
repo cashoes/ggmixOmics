@@ -18,6 +18,8 @@ ggbiplot(model, ...)
 \arguments{
 \item{model}{A mixOmics model object.}
 
+\item{...}{Optional. Parameters passed to ggvarplot.}
+
 \item{comps}{The components to visualize.}
 
 \item{col}{Optional. A vector. Labels to colour points by.}

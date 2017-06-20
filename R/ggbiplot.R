@@ -4,6 +4,7 @@
 #' @param model A mixOmics model object.
 #' @param comps The components to visualize.
 #' @param col Optional. A vector. Labels to colour points by.
+#' @param ... Optional. Parameters passed to ggvarplot.
 #' @import tidyverse
 #' @importFrom ggthemes "scale_color_few"
 #' @importFrom magrittr "%>%"
