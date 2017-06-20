@@ -9,11 +9,11 @@
 #' @importFrom ggthemes "scale_color_few"
 #' @importFrom magrittr "%>%"
 #' @export
-ggvarplot <- function(model, topn = NULL) UseMethod('ggvarplot')
+ggvarplot <- function(model, topn = 10) UseMethod('ggvarplot')
 
 #' @rdname ggvarplot
 #' @export
-ggvarplot.pca <- function(model, topn = NULL) {
+ggvarplot.pca <- function(model, topn = 10) {
   vars <- mixOmics::plotVar(model, plot = F)
   if(!is.null(topn)) {
     order <- vars %>%
@@ -28,7 +28,7 @@ ggvarplot.pca <- function(model, topn = NULL) {
 
 #' @rdname ggvarplot
 #' @export
-ggvarplot.DA <- function(model, topn = NULL) {
+ggvarplot.DA <- function(model, topn = 10) {
   vars <- mixOmics::plotVar(model, plot = F)
   if(!is.null(topn)) {
     order <- vars %>%
@@ -43,7 +43,7 @@ ggvarplot.DA <- function(model, topn = NULL) {
 
 #' @rdname ggvarplot
 #' @export
-ggvarplot.sgccda <- function(model, topn = NULL) {
+ggvarplot.sgccda <- function(model, topn = 10) {
   vars <- mixOmics::plotVar(model, plot = F)
   vars <- split(vars, vars$Block)
   purrr::pmap(list(vars = vars, labs = head(model$explained_variance, -1)), function(vars, labs) {
