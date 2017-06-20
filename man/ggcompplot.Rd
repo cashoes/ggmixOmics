@@ -9,11 +9,11 @@
 \usage{
 ggcompplot(model, ...)
 
-\method{ggcompplot}{pca}(model, col = NULL, ...)
+\method{ggcompplot}{pca}(model, comps = 1:2, col = NULL, ...)
 
-\method{ggcompplot}{DA}(model, ...)
+\method{ggcompplot}{DA}(model, comps = 1:2, ...)
 
-\method{ggcompplot}{sgccda}(model, ...)
+\method{ggcompplot}{sgccda}(model, comps = 1:2, ...)
 }
 \arguments{
 \item{model}{A mixOmics model object.}

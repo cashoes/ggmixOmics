@@ -10,8 +10,9 @@ ggcompplot <- function(model, ...) UseMethod('ggcompplot')
 
 #' @rdname ggcompplot
 #' @export
-ggcompplot.pca <- function(model, col = NULL, ...) {
-  df <- .extractor(model, ...)
+ggcompplot.pca <- function(model, comps = 1:2, col = NULL, ...) {
+  df <- data.frame(model$variates$X[ , comps])
+  colnames(df) <- c(paste0('comp', comps))
   if(is.null(col))
     df$class <- NA
   else
@@ -21,17 +22,24 @@ ggcompplot.pca <- function(model, col = NULL, ...) {
 
 #' @rdname ggcompplot
 #' @export
-ggcompplot.DA <- function(model, ...) {
-  df <- .extractor(model, ...)
+ggcompplot.DA <- function(model, comps = 1:2, ...) {
+  df <- data.frame(model$variates$X[ , comps], class = model$Y)
+  colnames(df) <- c(paste0('comp', comps), 'class')
   .compplot(df, model$explained_variance$X)
 }
 
 #' @rdname ggcompplot
 #' @export
-ggcompplot.sgccda <- function(model, ...) {
-  purrr::map2(utils::head(.extractor(model, ...), -1),
-              utils::head(model$explained_variance, -1),
-              ~ .compplot(.x, .y))
+ggcompplot.sgccda <- function(model, comps = 1:2, ...) {
+  df <- model$variates %>%
+    purrr::map(~ {
+      df <- data.frame(.[ , comps], class = model$Y)
+      colnames(df) <- c(paste0('comp', comps), 'class')
+      df
+    })
+  df <- utils::head(df, -1)
+  labs <- utils::head(model$explained_variance, -1)
+  purrr::map2(df, labs, .compplot)
 }
 
 # helper - the plot function
