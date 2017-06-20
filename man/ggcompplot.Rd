@@ -17,6 +17,10 @@ ggcompplot(model, ...)
 }
 \arguments{
 \item{model}{A mixOmics model object.}
+
+\item{comps}{The components to visualize.}
+
+\item{col}{Optional. A vector. Labels to colour points by.}
 }
 \description{
 Draws component plots given a mixOmics plot object.
