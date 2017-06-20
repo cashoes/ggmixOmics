@@ -8,7 +8,7 @@
 #' @importFrom ggthemes "scale_color_few"
 #' @importFrom magrittr "%>%"
 #' @export
-ggcompplot <- function(model) UseMethod('ggcompplot')
+ggcompplot <- function(model, comps = 1:2, col = NULL) UseMethod('ggcompplot')
 
 #' @rdname ggcompplot
 #' @export
