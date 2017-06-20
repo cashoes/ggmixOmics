@@ -4,7 +4,7 @@
 \alias{ggbiplot}
 \title{Draws a biplot given a mixOmics plot object.}
 \usage{
-ggbiplot(model, col = NULL, ...)
+ggbiplot(model, col = NULL, topn = 10, ...)
 }
 \arguments{
 \item{model}{A mixOmics model object.}
