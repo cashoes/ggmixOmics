@@ -7,13 +7,13 @@
 \alias{ggcompplot.sgccda}
 \title{Draws component plots given a mixOmics plot object.}
 \usage{
-ggcompplot(model, ...)
+ggcompplot(model)
 
-\method{ggcompplot}{pca}(model, comps = 1:2, col = NULL, ...)
+\method{ggcompplot}{pca}(model, comps = 1:2, col = NULL)
 
-\method{ggcompplot}{DA}(model, comps = 1:2, ...)
+\method{ggcompplot}{DA}(model, comps = 1:2)
 
-\method{ggcompplot}{sgccda}(model, comps = 1:2, ...)
+\method{ggcompplot}{sgccda}(model, comps = 1:2)
 }
 \arguments{
 \item{model}{A mixOmics model object.}

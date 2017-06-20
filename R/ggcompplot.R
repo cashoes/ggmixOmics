@@ -8,11 +8,11 @@
 #' @importFrom ggthemes "scale_color_few"
 #' @importFrom magrittr "%>%"
 #' @export
-ggcompplot <- function(model, ...) UseMethod('ggcompplot')
+ggcompplot <- function(model) UseMethod('ggcompplot')
 
 #' @rdname ggcompplot
 #' @export
-ggcompplot.pca <- function(model, comps = 1:2, col = NULL, ...) {
+ggcompplot.pca <- function(model, comps = 1:2, col = NULL) {
   df <- data.frame(model$variates$X[ , comps])
   colnames(df) <- c(paste0('comp', comps))
   if(is.null(col))
@@ -24,7 +24,7 @@ ggcompplot.pca <- function(model, comps = 1:2, col = NULL, ...) {
 
 #' @rdname ggcompplot
 #' @export
-ggcompplot.DA <- function(model, comps = 1:2, ...) {
+ggcompplot.DA <- function(model, comps = 1:2) {
   df <- data.frame(model$variates$X[ , comps], class = model$Y)
   colnames(df) <- c(paste0('comp', comps), 'class')
   .compplot(df, model$explained_variance$X)
@@ -32,7 +32,7 @@ ggcompplot.DA <- function(model, comps = 1:2, ...) {
 
 #' @rdname ggcompplot
 #' @export
-ggcompplot.sgccda <- function(model, comps = 1:2, ...) {
+ggcompplot.sgccda <- function(model, comps = 1:2) {
   df <- model$variates %>%
     purrr::map(~ {
       df <- data.frame(.[ , comps], class = model$Y)
