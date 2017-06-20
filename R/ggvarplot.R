@@ -4,6 +4,7 @@
 #' @param model A mixOmics model object.
 #' @param topn How many features to visualize the loading vectors of. Ordered by absolute corrlation with the components.
 #' @import tidyverse
+#' @import mixOmics
 #' @importFrom ggrepel "geom_text_repel"
 #' @importFrom ggthemes "scale_color_few"
 #' @importFrom magrittr "%>%"
