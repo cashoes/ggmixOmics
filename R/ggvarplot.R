@@ -70,15 +70,15 @@ ggvarplot.sgccda <- function(model, topn = 10) {
 
 # helper - the plot function
 .varplot <- function(df, labs) {
-  ggplot(df) +
-    geom_vline(xintercept = 0, alpha = 0.2) +
-    geom_hline(yintercept = 0, alpha = 0.2) +
-    geom_path(data = .circlefun(diameter = 1), aes(x, y), alpha = 0.2) +
-    geom_path(data = .circlefun(diameter = 2), aes(x, y), alpha = 0.2) +
-    geom_text_repel(aes(x, y, label = names), size = 2.5) +
-    geom_segment(aes(x = 0, y = 0, xend = x, yend = y),
+  ggplot2::ggplot(df) +
+    ggplot2::geom_vline(xintercept = 0, alpha = 0.2) +
+    ggplot2::geom_hline(yintercept = 0, alpha = 0.2) +
+    ggplot2::geom_path(data = .circlefun(diameter = 1), ggplot2::aes(x, y), alpha = 0.2) +
+    ggplot2::geom_path(data = .circlefun(diameter = 2), ggplot2::aes(x, y), alpha = 0.2) +
+    ggrepel::geom_text_repel(ggplot2::aes(x, y, label = names), size = 2.5) +
+    ggplot2::geom_segment(ggplot2::aes(x = 0, y = 0, xend = x, yend = y),
                  alpha = 0.2,
-                 arrow = arrow(type = 'open', length = unit(0.25,"cm"))) +
-    labs(x = sprintf('component 1\n(%2.1f%% var. explained)', labs[1] * 100),
-         y = sprintf('component 2\n(%2.1f%% var. explained)', labs[2] * 100))
+                 arrow = ggplot2::arrow(type = 'open', length = ggplot2::unit(0.25,"cm"))) +
+    ggplot2::labs(x = sprintf('component 1\n(%2.1f%% var. explained)', labs[1] * 100),
+                  y = sprintf('component 2\n(%2.1f%% var. explained)', labs[2] * 100))
 }
