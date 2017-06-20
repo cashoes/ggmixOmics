@@ -6,24 +6,24 @@
 #' @importFrom ggthemes "scale_color_few"
 #' @importFrom magrittr "%>%"
 #' @export
-ggbiplot <- function(model, topn = NULL) UseMethod('ggbiplot')
+ggbiplot <- function(model, ...) UseMethod('ggbiplot')
 
 #' @rdname ggbiplot
 #' @export
-ggbiplot.pca <- function(model, col = NULL, topn = 10, ...) {
-  .combine(ggcompplot(model, col), ggvarplot(model, topn))
+ggbiplot.pca <- function(model, col = NULL, ...) {
+  .combine(ggcompplot(model, col), ggvarplot(model, ...))
 }
 
 #' @rdname ggbiplot
 #' @export
-ggbiplot.DA <- function(model, topn = 10, ...) {
-  .combine(ggcompplot(model), ggvarplot(model, topn))
+ggbiplot.DA <- function(model, ...) {
+  .combine(ggcompplot(model), ggvarplot(model, ...))
 }
 
 #' @rdname ggbiplot
 #' @export
-ggbiplot.sgccda <- function(model, topn = 10, ...) {
-  purrr::map2(ggcompplot(model), ggvarplot(model, topn), .combine)
+ggbiplot.sgccda <- function(model, ...) {
+  purrr::map2(ggcompplot(model), ggvarplot(model, ...), .combine)
 }
 
 # helper - rescale
