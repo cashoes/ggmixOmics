@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: person("Casey", "Shannon", email = "casey.shannon@hli.ubc.ca", role = c("aut", "cre"))
 Description: Improved visualization options for outputs of the mixOmics package, with a particular focus on the multi-omics model framework, DIABLO.
 Depends: R (>= 3.3.2)
-License: MIT license
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
