@@ -31,7 +31,7 @@ ggcompplot.DA <- function(model, ...) {
 ggcompplot.sgccda <- function(model, ...) {
   purrr::map2(utils::head(.extractor(model, ...), -1),
               utils::head(model$explained_variance, -1),
-              ~ .mixplot(.x, .y))
+              ~ .compplot(.x, .y))
 }
 
 # helper - the plot function
