@@ -2,9 +2,18 @@
 % Please edit documentation in R/ggbiplot.R
 \name{ggbiplot}
 \alias{ggbiplot}
+\alias{ggbiplot.pca}
+\alias{ggbiplot.DA}
+\alias{ggbiplot.sgccda}
 \title{Draws a biplot given a mixOmics plot object.}
 \usage{
-ggbiplot(model, col = NULL, topn = 10, ...)
+ggbiplot(model, topn = NULL)
+
+\method{ggbiplot}{pca}(model, col = NULL, topn = 10, ...)
+
+\method{ggbiplot}{DA}(model, topn = 10, ...)
+
+\method{ggbiplot}{sgccda}(model, topn = 10, ...)
 }
 \arguments{
 \item{model}{A mixOmics model object.}
