@@ -24,7 +24,7 @@ ggcompplot.pca <- function(model, comps = 1:2, col = NULL) {
 
 #' @rdname ggcompplot
 #' @export
-ggcompplot.DA <- function(model, comps = 1:2) {
+ggcompplot.DA <- function(model, comps = 1:2, col = NULL) {
   df <- data.frame(model$variates$X[ , comps], class = model$Y)
   colnames(df) <- c(paste0('comp', comps), 'class')
   .compplot(df, model$explained_variance$X)
@@ -32,7 +32,7 @@ ggcompplot.DA <- function(model, comps = 1:2) {
 
 #' @rdname ggcompplot
 #' @export
-ggcompplot.sgccda <- function(model, comps = 1:2) {
+ggcompplot.sgccda <- function(model, comps = 1:2, col = NULL) {
   df <- model$variates %>%
     purrr::map(~ {
       df <- data.frame(.[ , comps], class = model$Y)
