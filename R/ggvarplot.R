@@ -5,7 +5,6 @@
 #' @param topn How many features to visualize the loading vectors of. Ordered by absolute corrlation with the components.
 #' @import tidyverse
 #' @import mixOmics
-#' @importFrom ggrepel "geom_text_repel"
 #' @importFrom ggthemes "scale_color_few"
 #' @importFrom magrittr "%>%"
 #' @export
@@ -75,7 +74,7 @@ ggvarplot.sgccda <- function(model, topn = 10) {
     ggplot2::geom_hline(yintercept = 0, alpha = 0.2) +
     ggplot2::geom_path(data = .circlefun(diameter = 1), ggplot2::aes(x, y), alpha = 0.2) +
     ggplot2::geom_path(data = .circlefun(diameter = 2), ggplot2::aes(x, y), alpha = 0.2) +
-    ggrepel::geom_text_repel(ggplot2::aes(x, y, label = names), size = 2.5) +
+    ggplot2::geom_text(ggplot2::aes(x, y, label = names), size = 2.5, check_overlap = T) +
     ggplot2::geom_segment(ggplot2::aes(x = 0, y = 0, xend = x, yend = y),
                  alpha = 0.2,
                  arrow = ggplot2::arrow(type = 'open', length = ggplot2::unit(0.25,"cm"))) +
