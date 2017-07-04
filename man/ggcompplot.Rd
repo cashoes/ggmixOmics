@@ -11,9 +11,9 @@ ggcompplot(model, comps = 1:2, col = NULL)
 
 \method{ggcompplot}{pca}(model, comps = 1:2, col = NULL)
 
-\method{ggcompplot}{DA}(model, comps = 1:2)
+\method{ggcompplot}{DA}(model, comps = 1:2, col = NULL)
 
-\method{ggcompplot}{sgccda}(model, comps = 1:2)
+\method{ggcompplot}{sgccda}(model, comps = 1:2, col = NULL)
 }
 \arguments{
 \item{model}{A mixOmics model object.}
