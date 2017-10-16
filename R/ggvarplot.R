@@ -44,7 +44,7 @@ ggvarplot.DA <- function(model, topn = 10) {
 #' @export
 ggvarplot.sgccda <- function(model, topn = 10) {
   vars <- mixOmics::plotVar(model, plot = F)
-  vars <- split(vars, vars$Block)
+  vars <- split(vars, vars$Block)[names(model$X)]
   purrr::pmap(list(vars = vars, labs = head(model$explained_variance, -1)), function(vars, labs) {
     if(!is.null(topn)) {
       order <- vars %>%
