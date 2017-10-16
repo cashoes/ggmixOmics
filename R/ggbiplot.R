@@ -6,6 +6,7 @@
 #' @param col Optional. A vector. Labels to colour points by.
 #' @param ... Optional. Parameters passed to ggvarplot.
 #' @import tidyverse
+#' @importFrom ggrepel "geom_text_repel"
 #' @importFrom ggthemes "scale_color_few"
 #' @importFrom magrittr "%>%"
 #' @export
@@ -46,7 +47,7 @@ ggbiplot.sgccda <- function(model, comps = 1:2, ...) {
     ggplot2::geom_hline(yintercept = 0, alpha = 0.2) +
     ggplot2::geom_path(data = .circlefun(diameter = 1), ggplot2::aes(x, y), alpha = 0.2) +
     ggplot2::geom_path(data = .circlefun(diameter = 2), ggplot2::aes(x, y), alpha = 0.2) +
-    ggplot2::geom_text(data = varplot$data, ggplot2::aes(x, y, label = names), size = 2.5, check_overlap = T) +
+    ggrepel::geom_text_repel(data = varplot$data, ggplot2::aes(x, y, label = names), size = 2.5) +
     ggplot2::geom_segment(data = varplot$data, ggplot2::aes(x = 0, y = 0, xend = x, yend = y),
                  alpha = 0.2,
                  arrow = ggplot2::arrow(type = 'open', length = ggplot2::unit(0.25,"cm")))

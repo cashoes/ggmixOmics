@@ -11,5 +11,6 @@ RoxygenNote: 6.0.1
 Imports: tidyverse,
     mixOmics,
     ggthemes,
-    magrittr
+    magrittr,
+    ggrepel
 Suggests: cowplot
